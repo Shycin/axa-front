@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>AXA Sousciption</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./css/axaDesignSystemLib.css" />
+		<link rel="stylesheet" href="./css/axaDesignSystemFonts.css" />
+		<link rel="stylesheet" href="./css/axaIconFont.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"></script>
+		<style>
+			html {
+				-ms-text-size-adjust: 100%;
+				-webkit-text-size-adjust: 100%;
+				font-family: SourceSansPro-regular, Arial, Helvetica, Sans-Serif;
+			}
+
+			.clickable {
+				cursor: pointer;
+			}
+
+			.navbar-expand-xxxl {
+				box-shadow: none !important;
+			}
+			.permanent-active {
+				border-color: var(--bs-axa-blue) !important;
+			}
+			.axa-header {
+				border-bottom: 1px solid #ccc;
+				/* display: flex; */
+				justify-content: space-between;
+				margin: 0 auto;
+				/* max-width: 80rem; */
+				min-height: 5.7rem;
+				padding: 0.8rem 1.6rem;
+				width: 100%;
+			}
+
+			@media only screen and (min-width: 1025px),
+				only screen and (min-width: 668px) and (max-width: 1024px) {
+				.axa-header {
+					/* max-width: 136.6rem; */
+					min-height: 7.5rem;
+					padding: 0.8rem 5.3rem;
+				}
+			}
+
+			body {
+				-webkit-font-smoothing: antialiased;
+				/* font-size: 1.4rem; */
+			}
+
+			aside {
+				transform: scale(0.7);
+			}
+
+			.main-container {
+				display: flex;
+				flex-direction: row;
+				margin: 0 20px;
+			}
+
+			.header-block .header-block-steps {
+				overflow: hidden;
+			}
+
+			.header-block .navigation-container {
+				align-items: flex-start;
+				border-right: 1px solid #f1f1f1;
+				flex-direction: column;
+				gap: 1rem;
+				margin: 7rem 4rem auto;
+				padding: 1rem;
+			}
+
+			.header-block .navigation-item.current {
+				display: block;
+				width: 100%;
+			}
+
+			.header-block .navigation-item {
+				list-style: none;
+				padding: 0 0 3.2rem;
+				position: relative;
+			}
+
+			.header-block .navigation-item:last-child::before {
+				display: none;
+			}
+
+			.header-block .navigation-item:before {
+				background-color: #e5e5e5;
+				content: "";
+				display: block;
+				height: 100%;
+				left: 1rem;
+				position: absolute;
+				top: 0.4rem;
+				width: 0.4rem;
+				z-index: -2;
+			}
+
+			.header-block .navigation-content:before {
+				background-color: #fff;
+				border: 3px solid #ccc;
+				border-radius: 50%;
+				content: "";
+				display: block;
+				height: 1.6rem;
+				left: 0.4rem;
+				position: absolute;
+				top: 0.4rem;
+				width: 1.6rem;
+			}
+
+			.header-block .current .navigation-content:before {
+				background-color: #00008f;
+				border: 4px solid #fff;
+				box-shadow: 0 4px 16px -2px rgba(0, 0, 143, 0.2);
+				font-weight: 600;
+				height: 2.4rem;
+				left: 0;
+				top: 0;
+				width: 2.4rem;
+			}
+
+			.header-block .navigation-content_label {
+				color: #5f5f5f;
+				display: inline-block;
+				font-size: 1.8rem;
+				font-style: normal;
+				font-weight: 400;
+				margin: auto 3.6rem;
+				text-align: left;
+			}
+
+			.header-block .current .navigation-content_label {
+				color: #00008f;
+				font-family: SourceSansPro-semibold;
+				margin: auto 3.9rem;
+			}
+
+			.header-block .completed .navigation-content:before {
+				background-color: #00008f;
+				border: 3px solid #fff;
+				box-shadow: 0 2px 8px 0 rgba(0, 0, 143, 0.15);
+			}
+
+			.header-block .current .navigation-content_caption {
+				display: block;
+			}
+
+			.header-block .navigation-content_caption {
+				color: #333;
+				display: none;
+				font-size: 1.8rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 1.2;
+				padding: 0 3.9rem;
+			}
+
+			.header-block .completed .navigation-line,
+			.header-block .current .navigation-line {
+				background-color: #00008f;
+				max-height: 100%;
+			}
+			.header-block .navigation-line {
+				left: 1rem;
+				position: absolute;
+				top: 1.9rem;
+				width: 0.4rem;
+				z-index: -1;
+			}
+
+			.component-loader,
+			.page-loader {
+				height: 100%;
+				position: relative;
+				width: 100%;
+			}
+
+			.slider-container {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				position: relative;
+				transition: transform 0s linear;
+				width: 100%;
+			}
+
+			@media only screen and (min-width: 1025px),
+				only screen and (min-width: 668px) and (max-width: 1024px) {
+				.slider-container-with-bg-image {
+					background-position: 100% 100%;
+					background-size: auto;
+					margin-bottom: 0;
+					min-height: calc(100vh - 9.4rem);
+					padding-bottom: 0;
+				}
+			}
+
+			.slider-container-with-bg-image {
+				background-position: bottom;
+				background-repeat: no-repeat;
+				margin-bottom: 9rem;
+				min-height: calc(100vh - 18rem);
+				padding-bottom: 10rem;
+			}
+
+			@media only screen and (min-width: 1025px),
+				only screen and (min-width: 668px) and (max-width: 1024px) {
+				.slider-container-with-bg-image .slider-item {
+					margin-bottom: 1rem;
+					min-height: calc(100vh - 9.2rem);
+				}
+			}
+
+			.slider-container-with-bg-image .slider-item {
+				min-height: calc(100vh - 38rem);
+			}
+
+			@media only screen and (min-width: 1025px),
+				only screen and (min-width: 668px) and (max-width: 1024px) {
+				.slider-item {
+					margin-bottom: 2rem;
+					min-height: calc(100vh - 9.2rem);
+				}
+			}
+
+			.slider-item {
+				height: 100%;
+				margin: 0 auto 9.6rem;
+				width: 100%;
+			}
+
+			form h2 {
+				margin-top: 100px;
+			}
+
+			.genre {
+				grid-area: genre;
+			}
+			.prenom {
+				grid-area: prenom;
+			}
+			.nom {
+				grid-area: nom;
+			}
+			.rue {
+				grid-area: rue;
+			}
+			.codePostal {
+				grid-area: codePostal;
+			}
+			.ville {
+				grid-area: ville;
+			}
+
+			#group-grid-personnel {
+				display: grid;
+				grid-gap: 10px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-auto-rows: minmax(50px, auto);
+				grid-template-areas:
+					"genre genre hd hd hd hd"
+					"prenom prenom prenom nom nom nom";
+			}
+
+			#group-grid-localisation {
+				display: grid;
+				grid-gap: 10px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-auto-rows: minmax(50px, auto);
+				grid-template-areas:
+					"rue rue rue rue rue rue"
+					"codePostal codePostal ville ville ville ville";
+			}
+
+			form button {
+				margin-top: 100px;
+			}
+
+			form > div {
+				display: none;
+			}
+
+			form > #form1 {
+				display: block;
+			}
+
+			.numeroOpportunite {
+				grid-area: numeroOpportunite;
+			}
+			.referenceDossier {
+				grid-area: referenceDossier;
+			}
+			.numeroSIRET {
+				grid-area: numeroSIRET;
+			}
+			.numeroSIREN {
+				grid-area: numeroSIREN;
+			}
+			.intermediaire {
+				grid-area: intermediaire;
+			}
+			.descriptionSuccincte {
+				grid-area: descriptionSuccincte;
+			}
+			.imageLien {
+				grid-area: imageLien;
+			}
+			.presenceCoassurance {
+				grid-area: presenceCoassurance;
+			}
+
+			#group-grid-carac-general {
+				display: grid;
+				grid-gap: 10px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-auto-rows: minmax(100px, auto);
+				grid-template-areas:
+					"numeroOpportunite numeroOpportunite numeroOpportunite referenceDossier referenceDossier referenceDossier"
+					"numeroSIRET numeroSIRET numeroSIRET numeroSIREN numeroSIREN numeroSIREN"
+					"intermediaire intermediaire intermediaire . . ."
+					"descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte"
+					"imageLien imageLien . . . ."
+					"presenceCoassurance presenceCoassurance . . . .";
+			}
+
+			.adresseOperation {
+				grid-area: adresseOperation;
+			}
+			.planAdresseOperation {
+				grid-area: planAdresseOperation;
+			}
+			.descriptifOperation {
+				grid-area: descriptifOperation;
+			}
+
+			#group-grid-carac-technique {
+				display: grid;
+				grid-gap: 10px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-auto-rows: minmax(50px, auto);
+				grid-template-areas:
+					"adresseOperation adresseOperation adresseOperation . . ."
+					"planAdresseOperation planAdresseOperation . . . ."
+					"descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation";
+			}
+
+			.ql-container {
+				height: unset;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="axa-header">
+			<div class="ax-example p-md-0 navbar-header">
+				<nav
+					class="container navbar navbar-expand-xxxl navbar-light px-0"
+				>
+					<!-- LOGO -->
+					<a class="navbar-brand" href="#"></a>
+					<!-- OPEN DROPDOWN -->
+					<div id="currentnav" class="collapse d-flex show">
+						<!-- Open -->
+						<button
+							id="nav-burger"
+							class="nav-menu-responsif navbar-toggler collapse show position-absolute end-0"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target=".nav-menu-responsif, #navbarDropdown"
+							aria-controls="navbarDropdown navbar4_searchForm navbar4_buttonsForm"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+							style="top: 22px"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<!-- Close -->
+						<button
+							id="nav-close"
+							class="nav-menu-responsif navbar-toggler collapse collapsed position-absolute end-0"
+							type="button"
+							data-bs-toggle="collapse-all"
+							data-bs-target=".nav-menu-responsif, #navbarDropdown, #inputSearch"
+							aria-controls="navbarDropdown"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+							style="top: 19px"
+						>
+							<i class="icon-close fs-xl"></i>
+						</button>
+					</div>
+					<div
+						class="collapse navbar-collapse header-collapse toggle-close"
+						id="navbarDropdown"
+					>
+						<div
+							class="tab-content navbar-header-dropdown"
+							id="nav-tabContent"
+						>
+							<div
+								class="tab-content"
+								id="myTabContent"
+								data-bs-toggle="tab-drop"
+							>
+								<!-- navbar DESKTOP mode individuals -->
+								<div
+									class="tab-pane show active nav-individuals-2"
+									id="nav-individuals-2"
+								>
+									<ul
+										class="nav navbar4-multiCollapse show nav-tabs navbar-nav search-collapse text-uppercase me-0 m-auto flex-nowrap"
+										id="TabIndividuals"
+									>
+										<li role="presentation">
+											<a
+												class="nav-link reverse-tab d-flex justify-content-between w-100"
+												href="index.html"
+												>CONTRATS
+											</a>
+										</li>
+										<li role="presentation">
+											<a
+												class="nav-link reverse-tab d-flex justify-content-between w-100 text-nowrap permanent-active"
+												href="formulaire.html"
+												>FORMUAIRE CONTRAT
+											</a>
+										</li>
+										<li
+											class="m-auto py-4 py-xxxl-0 px-2 border-xxl-none"
+										>
+											<button
+												type="button"
+												class="btn btn-outline-primary w-100"
+											>
+												LOGIN
+											</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main-container container--center container--mw-lg">
+			<aside class="header-block d-none d-md-flex">
+				<div class="navigation-slider">
+					<nav class="header-block-steps">
+						<ul
+							class="js-navigation-container navigation-container"
+							data-module="navigation"
+							data-module-id="9"
+						>
+							<li
+								id="status1"
+								class="js-navigation-item navigation-item current"
+								data-navbar-id="besoin"
+								data-qsi="header-step-1"
+							>
+								<div
+									class="js-navigation-content navigation-content"
+								>
+									<i
+										class="icon_confirm icon_confirm--disable"
+										aria-hidden="true"
+									></i>
+									<p
+										data-navbar-title="true"
+										class="navigation-content_label sr-only"
+									>
+										Client
+									</p>
+									<p class="navigation-content_caption">
+										Rechercher ou créer un nouveau client
+									</p>
+								</div>
+								<span
+									id="status-bar1"
+									class="js-navigation-line navigation-line"
+									style="height: 30%"
+								></span>
+							</li>
+
+							<li
+								id="status2"
+								class="js-navigation-item navigation-item"
+								data-navbar-id="Profil"
+								data-qsi="header-step-2"
+							>
+								<div
+									class="js-navigation-content navigation-content"
+								>
+									<i
+										class="icon_confirm icon_confirm--disable"
+										aria-hidden="true"
+									></i>
+									<p
+										data-navbar-title="true"
+										class="navigation-content_label"
+									>
+										Informations générales
+									</p>
+									<p class="navigation-content_caption">
+										Description non technique
+									</p>
+								</div>
+								<span
+									id="status-bar2"
+									class="js-navigation-line navigation-line"
+								></span>
+							</li>
+
+							<li
+								id="status3"
+								class="js-navigation-item navigation-item"
+								data-navbar-id="coordonnees"
+								data-qsi="header-step-3"
+							>
+								<div
+									class="js-navigation-content navigation-content"
+								>
+									<i
+										class="icon_confirm icon_confirm--disable"
+										aria-hidden="true"
+									></i>
+									<p
+										data-navbar-title="true"
+										class="navigation-content_label"
+									>
+										Informations techniques
+									</p>
+									<p class="navigation-content_caption">
+										Description technique
+									</p>
+								</div>
+								<span
+									class="js-navigation-line navigation-line"
+								></span>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</aside>
+
+			<div class="page-loader">
+				<div class="slider-container slider-container-with-bg-image">
+					<div class="slider-item">
+						<form id="contrats" class="slider-container__form">
+							<div id="form1">
+								<input
+									id="clientId"
+									name="clientId"
+									type="hidden"
+									value=""
+								/>
+								<div class="input-group" input-group-lg”>
+									<span
+										class="input-group-text"
+										id="inputGroup-sizing-lg"
+										>Rechercher</span
+									>
+									<input
+										list="clients"
+										id="clientSearch"
+										placeholder="Client"
+										class="form-control"
+										aria-label="Sizing"
+										example
+										input”
+										aria-describedby="inputGroup-sizing-lg"
+									/>
+								</div>
+								<div id="searchChoices"></div>
+
+								<h2>Information générale</h2>
+								<div id="group-grid-personnel">
+									<div class="genre">
+										<label for="genre" class="form-label">
+											<strong>Genre</strong>
+										</label>
+										<div class="form-check">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="genre"
+												id="homme"
+												value="H"
+												checked
+											/>
+											<label
+												class="form-check-label"
+												for="homme"
+											>
+												M.
+											</label>
+										</div>
+										<div class="form-check">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="genre"
+												id="femme"
+												value="F"
+											/>
+											<label
+												class="form-check-label"
+												for="femme"
+											>
+												Mme.
+											</label>
+										</div>
+									</div>
+									<div class="prenom">
+										<label for="prenom" class="form-label">
+											<strong>Prénom</strong>
+										</label>
+										<input
+											id="prenom"
+											name="prenom"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="prenom"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+
+									<div class="nom">
+										<label for="nom" class="form-label">
+											<strong>Nom</strong>
+										</label>
+										<input
+											id="nom"
+											name="nom"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="nom"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+								</div>
+
+								<h2>Information Localisation</h2>
+								<div id="group-grid-localisation">
+									<div class="rue">
+										<label for="rue" class="form-label">
+											<strong>Rue</strong>
+										</label>
+										<input
+											id="rue"
+											name="rue"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="rue"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="codePostal">
+										<label
+											for="codePostal"
+											class="form-label"
+										>
+											<strong>Code postal</strong>
+										</label>
+										<input
+											id="codePostal"
+											name="codePostal"
+											class="form-control form-control-l"
+											type="text"
+											placeholder="code postal"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+
+									<div class="ville">
+										<label for="ville" class="form-label">
+											<strong>Ville</strong>
+										</label>
+										<input
+											id="ville"
+											name="ville"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="ville"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+								</div>
+
+								<button
+									type="button"
+									class="btn btn-primary"
+									onclick="
+										document.getElementById('status1').classList.remove('current')
+										document.getElementById('status1').classList.add('completed')
+										document.getElementById('status-bar1').style.height = '100%'
+										document.getElementById('status2').classList.add('current')
+										document.getElementById('form1').style.display = 'none'
+										document.getElementById('form2').style.display = 'block'
+									"
+								>
+									Suivant
+								</button>
+							</div>
+							<div id="form2">
+								<h2>Information générale</h2>
+								<div id="group-grid-carac-general">
+									<div class="numeroOpportunite">
+										<label
+											for="numeroOpportunite"
+											class="form-label"
+										>
+											<strong
+												>Numéro d'opportunité</strong
+											>
+										</label>
+										<input
+											id="numeroOpportunite"
+											name="numeroOpportunite"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Numéro d'opportunité"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="referenceDossier">
+										<label
+											for="referenceDossier"
+											class="form-label"
+										>
+											<strong
+												>Référence du dossier</strong
+											>
+										</label>
+										<input
+											id="referenceDossier"
+											name="referenceDossier"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Référence du dossier"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="numeroSIRET">
+										<label
+											for="numeroSIRET"
+											class="form-label"
+										>
+											<strong>Numéro de SIRET</strong>
+										</label>
+										<input
+											id="numeroSIRET"
+											name="numeroSIRET"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Numéro de SIRET"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="numeroSIREN">
+										<label
+											for="numeroSIREN"
+											class="form-label"
+										>
+											<strong>Numéro de SIREN</strong>
+										</label>
+										<input
+											id="numeroSIREN"
+											name="numeroSIREN"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Numéro de SIREN"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="intermediaire">
+										<label
+											for="intermediaire"
+											class="form-label"
+										>
+											<strong>Intermédiaire</strong>
+										</label>
+										<input
+											id="intermediaire"
+											name="intermediaire"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Intermédiaire"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="descriptionSuccincte">
+										<label
+											for="descriptionSuccincte"
+											class="form-label"
+										>
+											<strong
+												>Description succincte</strong
+											>
+										</label>
+										<textarea
+											id="descriptionSuccincte"
+											name="descriptionSuccincte"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Description succincte"
+											aria-label=".form-control-lg example"
+										></textarea>
+									</div>
+									<div class="imageLien">
+										<label
+											for="imageLien"
+											class="form-label"
+										>
+											<strong>Image description</strong>
+										</label>
+										<input
+											type="file"
+											accept=".jpg, .jpeg, .png"
+											class="custom-file-input"
+											id="imageLien"
+											name="imageLien"
+											type="text"
+											placeholder="Description succincte"
+										/>
+									</div>
+									<div class="presenceCoassurance">
+										<label
+											for="presenceCoassurance"
+											class="form-label"
+										>
+											<strong>Coassurance</strong>
+										</label>
+										<div class="form-check">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="presenceCoassurance"
+												id="oui"
+												value="true"
+												checked
+											/>
+											<label
+												class="form-check-label"
+												for="oui"
+											>
+												Oui
+											</label>
+										</div>
+										<div class="form-check">
+											<input
+												class="form-check-input"
+												type="radio"
+												name="presenceCoassurance"
+												id="non"
+												value="false"
+											/>
+											<label
+												class="form-check-label"
+												for="non"
+											>
+												Non
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<button
+									type="button"
+									class="btn btn-primary"
+									onclick="
+									document.getElementById('status2').classList.remove('current')
+									document.getElementById('status-bar1').style.height = '100%'
+									document.getElementById('status1').classList.add('current')
+									document.getElementById('form2').style.display = 'none'
+									document.getElementById('form1').style.display = 'block'
+								"
+								>
+									Précédent
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									onclick="
+									document.getElementById('status2').classList.remove('current')
+									document.getElementById('status2').classList.add('completed')
+									document.getElementById('status-bar2').style.height = '100%'
+									document.getElementById('status3').classList.add('current')
+									document.getElementById('form2').style.display = 'none'
+									document.getElementById('form3').style.display = 'block'
+								"
+								>
+									Suivant
+								</button>
+							</div>
+							<div id="form3">
+								<h2>Information technique</h2>
+								<div id="group-grid-carac-technique">
+									<div class="adresseOperation">
+										<label
+											for="adresseOperation"
+											class="form-label"
+										>
+											<strong
+												>Adresse de l'opération</strong
+											>
+										</label>
+										<input
+											id="adresseOperation"
+											name="adresseOperation"
+											class="form-control form-control-lg"
+											type="text"
+											placeholder="Adresse de l'opération"
+											aria-label=".form-control-lg example"
+										/>
+									</div>
+									<div class="planAdresseOperation">
+										<label
+											for="planAdresseOperation"
+											class="form-label"
+										>
+											<strong>Plan de l'adresse</strong>
+										</label>
+										<input
+											multiple
+											type="file"
+											accept=".jpg, .jpeg, .png"
+											class="custom-file-input"
+											id="planAdresseOperation"
+											name="planAdresseOperation"
+											type="text"
+											placeholder="Description succincte"
+										/>
+									</div>
+									<div class="descriptifOperation">
+										<label
+											for="descriptifOperation"
+											class="form-label"
+										>
+											<strong>Descriptif détaillé</strong>
+										</label>
+										<div id="editor">
+											<p>Hello World!</p>
+											<p>
+												Some initial
+												<strong>bold</strong> text
+											</p>
+											<p><br /></p>
+										</div>
+									</div>
+								</div>
+
+								<button
+									type="button"
+									class="btn btn-primary"
+									onclick="
+									document.getElementById('status3').classList.remove('current')
+									document.getElementById('status-bar2').style.height = '100%'
+									document.getElementById('status2').classList.add('current')
+									document.getElementById('form3').style.display = 'none'
+									document.getElementById('form2').style.display = 'block'
+								"
+								>
+									Précédent
+								</button>
+								<button type="submit" class="btn btn-primary">
+									Valider
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script
+			type="text/javascript"
+			src="./js/axaDesignSystemLib.bundle.min.js"
+		></script>
+		<script type="text/javascript">
+			const urlTarget = "http://127.0.0.1:3000";
+			const urlParams = new URLSearchParams(window.location.search);
+			const currentPage = urlParams.get("page") || 1;
+			const quill = new Quill("#editor", {
+				theme: "snow",
+			});
+		</script>
+		<script type="text/javascript" src="./js/searchClient.js"></script>
+		<script type="text/javascript" src="./js/contratFormulaire.js"></script>
+	</body>
+</html>
