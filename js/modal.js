@@ -14,6 +14,21 @@ function generateRowDataModal(name, value) {
     return rowData
 }
 
+function generateRowDataHTMLModal(name, value) {
+    const rowData = document.createElement("div");
+
+    const spanName = document.createElement("span");
+    spanName.innerText = name
+
+    const spanValue = document.createElement("span");
+    spanValue.innerHTML = value
+
+    rowData.appendChild(spanName)
+    rowData.appendChild(spanValue)
+
+    return rowData
+}
+
 function generateRowDataImageModal(name, images) {
     const rowData = document.createElement("div");
 
@@ -137,7 +152,12 @@ function generateRowItemModal(id, object) {
     const containerModal = document.createElement("div");
     containerModal.classList.add("containerModal")
 
+    const axaIcon = document.createElement("a");
+    axaIcon.classList.add("navbar-brand")
+
     containerModal.appendChild(generateClose(id))
+    containerModal.appendChild(axaIcon)
+
     containerModal.appendChild(generateRowDataModal("Numéro d'opportunité", object.numeroOpportunite))
     containerModal.appendChild(generateRowDataModal("Référence du dossier", object.referenceDossier))
     containerModal.appendChild(generateRowDataModal("Numéro de SIRET", object.numeroSIRET))
@@ -149,11 +169,10 @@ function generateRowItemModal(id, object) {
     containerModal.appendChild(generateRowDataModal("Coassurance ?", object.presenceCoassurance))
     containerModal.appendChild(generateRowDataModal("Adresse de l'opération", object.adresseOperation))
     containerModal.appendChild(generateRowDataImageModal("Plan de l'adresse", object.planAdresseOperation))
-    containerModal.appendChild(generateRowDataModal("Descriptif détaillé", object.descriptifOperation))
+    containerModal.appendChild(generateRowDataHTMLModal("Descriptif détaillé", object.descriptifOperation))
     containerModal.appendChild(generateRowDataModal("Coût", object.coutOperation))
     containerModal.appendChild(generateRowDataUploadModal(object.pdfFileUrl, object.docxFileUrl))
 
-    const numeroOpportunite = document.createElement("div");
     containerModal.classList.add("containerModal")
 
 

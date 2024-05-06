@@ -13,241 +13,10 @@
 		<link rel="stylesheet" href="./css/axaDesignSystemLib.css" />
 		<link rel="stylesheet" href="./css/axaDesignSystemFonts.css" />
 		<link rel="stylesheet" href="./css/axaIconFont.css" />
-		<style>
-			html {
-				-ms-text-size-adjust: 100%;
-				-webkit-text-size-adjust: 100%;
-				font-family: SourceSansPro-regular, Arial, Helvetica, Sans-Serif;
-			}
-
-			.navbar-expand-xxxl {
-				box-shadow: none !important;
-			}
-			.permanent-active {
-				border-color: var(--bs-axa-blue) !important;
-			}
-			.axa-header {
-				border-bottom: 1px solid #ccc;
-				/* display: flex; */
-				justify-content: space-between;
-				margin: 0 auto;
-				/* max-width: 80rem; */
-				min-height: 5.7rem;
-				padding: 0.8rem 1.6rem;
-				width: 100%;
-			}
-
-			@media only screen and (min-width: 1025px),
-				only screen and (min-width: 668px) and (max-width: 1024px) {
-				.axa-header {
-					/* max-width: 136.6rem; */
-					min-height: 7.5rem;
-					padding: 0.8rem 5.3rem;
-				}
-			}
-
-			body {
-				-webkit-font-smoothing: antialiased;
-				/* font-size: 1.4rem; */
-			}
-
-			.header-block .header-block-steps {
-				overflow: hidden;
-			}
-
-			.header-block .navigation-container {
-				align-items: flex-start;
-				border-right: 1px solid #f1f1f1;
-				flex-direction: column;
-				gap: 1rem;
-				margin: 7rem 4rem auto;
-				padding: 1rem;
-			}
-
-			.header-block .navigation-item.current {
-				display: block;
-				width: 100%;
-			}
-
-			.header-block .navigation-item {
-				list-style: none;
-				padding: 0 0 3.2rem;
-				position: relative;
-			}
-
-			.header-block .navigation-item:last-child::before {
-				display: none;
-			}
-
-			.header-block .navigation-item:before {
-				background-color: #e5e5e5;
-				content: "";
-				display: block;
-				height: 100%;
-				left: 1rem;
-				position: absolute;
-				top: 0.4rem;
-				width: 0.4rem;
-				z-index: -2;
-			}
-
-			.header-block .navigation-content:before {
-				background-color: #fff;
-				border: 3px solid #ccc;
-				border-radius: 50%;
-				content: "";
-				display: block;
-				height: 1.6rem;
-				left: 0.4rem;
-				position: absolute;
-				top: 0.4rem;
-				width: 1.6rem;
-			}
-
-			.header-block .current .navigation-content:before {
-				background-color: #00008f;
-				border: 4px solid #fff;
-				box-shadow: 0 4px 16px -2px rgba(0, 0, 143, 0.2);
-				font-weight: 600;
-				height: 2.4rem;
-				left: 0;
-				top: 0;
-				width: 2.4rem;
-			}
-
-			.header-block .navigation-content_label {
-				color: #5f5f5f;
-				display: inline-block;
-				font-size: 1.8rem;
-				font-style: normal;
-				font-weight: 400;
-				margin: auto 3.6rem;
-				text-align: left;
-			}
-
-			.header-block .current .navigation-content_label {
-				color: #00008f;
-				font-family: SourceSansPro-semibold;
-				margin: auto 3.9rem;
-			}
-
-			.header-block .completed .navigation-content:before {
-				background-color: #00008f;
-				border: 3px solid #fff;
-				box-shadow: 0 2px 8px 0 rgba(0, 0, 143, 0.15);
-			}
-
-			.header-block .current .navigation-content_caption {
-				display: block;
-			}
-
-			.header-block .navigation-content_caption {
-				color: #333;
-				display: none;
-				font-size: 1.8rem;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 1.2;
-				padding: 0 3.9rem;
-			}
-
-			.header-block .completed .navigation-line,
-			.header-block .current .navigation-line {
-				background-color: #00008f;
-				max-height: 100%;
-			}
-			.header-block .navigation-line {
-				left: 1rem;
-				position: absolute;
-				top: 1.9rem;
-				width: 0.4rem;
-				z-index: -1;
-			}
-
-			.component-loader,
-			.page-loader {
-				height: 100%;
-				position: relative;
-				width: 100%;
-			}
-
-			tr {
-            	height: 50px;
-        	}
-
-			.table-row td {
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-
-			.text-overflow-clip {
-				white-space: nowrap;
-				width: 100%;
-				overflow: hidden;
-				text-overflow: clip;
-       	 	}
-
-			.modalContract
-			{
-				display: none;
-				position: absolute;
-				z-index: 100;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background-color: rgba(0,0,0,0.5);
-			}
-
-			.modalContract.open
-			{
-				display: block
-			}
-
-			.containerModal {
-				width: 50%;
-				position: absolute;
-				top: 25%;
-				height: 50%;
-				left: 25%;
-				background-color: white;
-				overflow-y: scroll;
-
-				display: flex;
-				flex-direction: column;
-				padding: 20px;
-
-				border-left: 20px solid var(--bs-axa-ocean);
-			}
-
-			.clickable {
-				cursor: pointer;
-			}
-
-			.containerModal>div {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-gap: 10px;
-				grid-auto-rows: minmax(50px, auto);
-				align-items: center;
-				padding: 10px;
-			}
-
-			.containerModal>div:nth-child(odd) {
-				background-color: #eee;
-			}
-
-			@media only screen and (max-width: 1025px),
-				only screen and (min-width: 668px) and (max-width: 1024px) {
-				.containerModal {
-					width: 80%;
-					top: 25%;
-					height: 50%;
-					left: 10%;
-				}
-			}
-
-		</style>
+		<link rel="stylesheet" href="./css/modal.css" />
+		<link rel="stylesheet" href="./css/tableau.css" />
+		<link rel="stylesheet" href="./css/header.css" />
+		<link rel="stylesheet" href="./css/common.css" />
 	</head>
 	<body>
 		<header class="axa-header">
@@ -257,86 +26,31 @@
 				>
 					<!-- LOGO -->
 					<a class="navbar-brand" href="#"></a>
-					<!-- OPEN DROPDOWN -->
-					<div id="currentnav" class="collapse d-flex show">
-						<!-- Open -->
-						<button
-							id="nav-burger"
-							class="nav-menu-responsif navbar-toggler collapse show position-absolute end-0"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target=".nav-menu-responsif, #navbarDropdown"
-							aria-controls="navbarDropdown navbar4_searchForm navbar4_buttonsForm"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-							style="top: 22px"
-						>
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<!-- Close -->
-						<button
-							id="nav-close"
-							class="nav-menu-responsif navbar-toggler collapse collapsed position-absolute end-0"
-							type="button"
-							data-bs-toggle="collapse-all"
-							data-bs-target=".nav-menu-responsif, #navbarDropdown, #inputSearch"
-							aria-controls="navbarDropdown"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-							style="top: 19px"
-						>
-							<i class="icon-close fs-xl"></i>
-						</button>
-					</div>
-					<div
-						class="collapse navbar-collapse header-collapse toggle-close"
-						id="navbarDropdown"
-					>
-						<div
-							class="tab-content navbar-header-dropdown"
-							id="nav-tabContent"
-						>
-							<div
-								class="tab-content"
-								id="myTabContent"
-								data-bs-toggle="tab-drop"
-							>
+					<div class="" id="navbarDropdown">
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-content" id="myTabContent">
 								<!-- navbar DESKTOP mode individuals -->
 								<div
 									class="tab-pane show active nav-individuals-2"
 									id="nav-individuals-2"
 								>
 									<ul
-										class="nav navbar4-multiCollapse show nav-tabs navbar-nav search-collapse text-uppercase me-0 m-auto flex-nowrap"
+										class="nav text-uppercase me-0 m-auto flex-nowrap"
 										id="TabIndividuals"
 									>
-										<li
-											role="presentation"
-										>
+										<li role="presentation">
 											<a
 												class="nav-link reverse-tab d-flex justify-content-between w-100 permanent-active"
 												href="index.html"
-											>CONTRATS
+												>CONTRATS
 											</a>
 										</li>
-										<li
-											role="presentation"
-										>
+										<li role="presentation">
 											<a
 												class="nav-link reverse-tab d-flex justify-content-between w-100 text-nowrap"
 												href="formulaire.html"
-											>FORMUAIRE CONTRAT
+												>NOUVEAU CONTRAT
 											</a>
-										</li>
-										<li
-											class="m-auto py-4 py-xxxl-0 px-2 border-xxl-none"
-										>
-											<button
-												type="button"
-												class="btn btn-outline-primary w-100"
-											>
-												LOGIN
-											</button>
 										</li>
 									</ul>
 								</div>
@@ -347,33 +61,89 @@
 			</div>
 		</header>
 
-		<main id="main" class="main-container container--center container--mw-lg">
-
-			<div id="table-container" style="overflow-x: scroll;">
-				<table id="data-table" class="table dt-responsive nowrap" style="width:100%; table-layout: fixed; border-spacing: 1em 0.5em;">
+		<main
+			id="main"
+			class="main-container container--center container--mw-lg"
+		>
+			<div id="table-container" style="overflow-x: scroll">
+				<table
+					id="data-table"
+					class="table dt-responsive nowrap"
+					style="
+						width: 100%;
+						table-layout: fixed;
+						border-spacing: 1em 0.5em;
+					"
+				>
 					<thead>
-						<tr class="header-row ">
-							<th style="width: 200px;">
+						<tr class="header-row">
+							<th style="width: 200px">
 								<span class="ms-1"> Numéro d’opportunité </span>
-								<span class="sort-icon data-table-sort-low-icon" name="data-table-sort-icon" index=0></span>
+								<span
+									class="sort-icon data-table-sort-low-icon clickable"
+									name="numeroOpportunite"
+									value="asc"
+									index="0"
+								></span>
+								<input
+									type="text"
+									class="form-control searchFiltre"
+									id="numeroOpportuniteSearch"
+									placeholder="Rechercher opportunité"
+								/>
 							</th>
 							<th style="width: 200px">
 								<span> Référence du dossier </span>
-								<span class="sort-icon data-table-sort-low-icon" name="data-table-sort-icon" index=1>
+								<span
+									class="sort-icon data-table-sort-low-icon clickable"
+									name="referenceDossier"
+									value="asc"
+									index="1"
+								></span>
+								<input
+									type="text"
+									class="form-control searchFiltre"
+									id="referenceDossierSearch"
+									placeholder="Rechercher référence"
+								/>
 							</th>
-							<th style="width: 200px">Client</th>
-							<th style="width: 200px">Téléchargement Fichiers</th>
-							<th style="width: 50px; align-items: center;">Détails</th>
+							<th style="width: 200px">
+								<span>Client</span>
+								<span
+									class="sort-icon data-table-sort-low-icon clickable"
+									name="client"
+									value="asc"
+									index="2"
+								></span>
+								<input
+									type="text"
+									class="form-control searchFiltre"
+									id="nameSearch"
+									placeholder="Rechercher client"
+								/>
+							</th>
+							<th style="width: 200px">
+								Téléchargement Fichiers
+							</th>
+							<th style="width: 200px">
+								<span>Date</span>
+								<span
+									class="sort-icon data-table-sort-low-icon clickable"
+									name="date"
+									value="asc"
+									index="3"
+								></span>
+							</th>
+							<th style="width: 50px; align-items: center">
+								Détails
+							</th>
 						</tr>
 					</thead>
-					<tbody id="table-contracts">
-						
-					</tbody>
+					<tbody id="table-contracts"></tbody>
 				</table>
 			</div>
 			<nav aria-label="Page navigation example">
-				<ul id="pagination" class="pagination text-uppercase h3">
-				</ul>
+				<ul id="pagination" class="pagination text-uppercase h3"></ul>
 			</nav>
 			<div class="page-loader">
 				<div class="slider-container slider-container-with-bg-image">
@@ -389,9 +159,37 @@
 			src="./js/axaDesignSystemLib.bundle.min.js"
 		></script>
 		<script type="text/javascript">
-			const urlTarget = 'http://127.0.0.1:3000'
+			const urlTarget = "http://127.0.0.1:3000";
 			const urlParams = new URLSearchParams(window.location.search);
-			const currentPage = urlParams.get("page") || 1
+			const currentPage = urlParams.get("page") || 1;
+
+			let otherParams = "";
+			let otherSearchParams = "";
+
+			urlParams.get("numeroOpportuniteSearch")
+				? (otherSearchParams =
+						"&numeroOpportuniteSearch=" +
+						urlParams.get("numeroOpportuniteSearch"))
+				: "";
+
+			urlParams.get("referenceDossierSearch")
+				? (otherSearchParams =
+						"&referenceDossierSearch=" +
+						urlParams.get("referenceDossierSearch"))
+				: "";
+
+			urlParams.get("nameSearch")
+				? (otherSearchParams =
+						"&nameSearch=" + urlParams.get("nameSearch"))
+				: "";
+
+			const debounce = (fn, delay = 1000) => {
+				let timerId = null;
+				return (...args) => {
+					clearTimeout(timerId);
+					timerId = setTimeout(() => fn(...args), delay);
+				};
+			};
 		</script>
 		<script type="text/javascript" src="./js/wordWrap.js"></script>
 		<script type="text/javascript" src="./js/rowItemTable.js"></script>

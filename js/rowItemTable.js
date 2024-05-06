@@ -85,11 +85,23 @@ function generateDetail(id) {
     return rowItem
 }
 
+function formatDate(date, separator = "/") {
+    const day = `${date.getDate()}`.padStart(2, "0");
+    const month = `${date.getMonth() + 1}`.padStart(2, "0");
+    const year = date.getFullYear();
+
+    const hour = `${date.getHours() + 1}`.padStart(2, "0");
+    const minutes = `${date.getMinutes() + 1}`.padStart(2, "0");
+
+
+    return day + separator + month + separator + year + "  " + hour + ":" + minutes
+}
 
 
 function generateRow(object) {
 
     const contratsTable = document.getElementById('table-contracts')
+
     const main = document.getElementById('main')
 
     const identiteClient = (object.client.genre === "H" ? "M." : "Mme") + " " + object.client.prenom + " " + object.client.nom
@@ -103,6 +115,7 @@ function generateRow(object) {
     rowItem.appendChild(generateRowItem(object.referenceDossier))
     rowItem.appendChild(generateRowItemClient(identiteClient, object.client))
     rowItem.appendChild(generateRowItemAction(object.pdfFileUrl, object.docxFileUrl))
+    rowItem.appendChild(generateRowItem(formatDate(new Date(object.date), '-')))
     rowItem.appendChild(generateDetail(id))
 
     main.appendChild(generateRowItemModal(id, object))

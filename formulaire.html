@@ -13,53 +13,15 @@
 		<link rel="stylesheet" href="./css/axaDesignSystemLib.css" />
 		<link rel="stylesheet" href="./css/axaDesignSystemFonts.css" />
 		<link rel="stylesheet" href="./css/axaIconFont.css" />
+		<link rel="stylesheet" href="./css/common.css" />
 		<link
 			href="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.snow.css"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="./css/modal.css" />
 		<script src="https://cdn.jsdelivr.net/npm/quill@2.0.1/dist/quill.js"></script>
+		<link rel="stylesheet" href="./css/gridTemplate.css" />
 		<style>
-			html {
-				-ms-text-size-adjust: 100%;
-				-webkit-text-size-adjust: 100%;
-				font-family: SourceSansPro-regular, Arial, Helvetica, Sans-Serif;
-			}
-
-			.clickable {
-				cursor: pointer;
-			}
-
-			.navbar-expand-xxxl {
-				box-shadow: none !important;
-			}
-			.permanent-active {
-				border-color: var(--bs-axa-blue) !important;
-			}
-			.axa-header {
-				border-bottom: 1px solid #ccc;
-				/* display: flex; */
-				justify-content: space-between;
-				margin: 0 auto;
-				/* max-width: 80rem; */
-				min-height: 5.7rem;
-				padding: 0.8rem 1.6rem;
-				width: 100%;
-			}
-
-			@media only screen and (min-width: 1025px),
-				only screen and (min-width: 668px) and (max-width: 1024px) {
-				.axa-header {
-					/* max-width: 136.6rem; */
-					min-height: 7.5rem;
-					padding: 0.8rem 5.3rem;
-				}
-			}
-
-			body {
-				-webkit-font-smoothing: antialiased;
-				/* font-size: 1.4rem; */
-			}
-
 			aside {
 				transform: scale(0.7);
 			}
@@ -183,13 +145,6 @@
 				z-index: -1;
 			}
 
-			.component-loader,
-			.page-loader {
-				height: 100%;
-				position: relative;
-				width: 100%;
-			}
-
 			.slider-container {
 				display: flex;
 				flex-direction: column;
@@ -243,125 +198,6 @@
 				margin: 0 auto 9.6rem;
 				width: 100%;
 			}
-
-			form h2 {
-				margin-top: 100px;
-			}
-
-			.genre {
-				grid-area: genre;
-			}
-			.prenom {
-				grid-area: prenom;
-			}
-			.nom {
-				grid-area: nom;
-			}
-			.rue {
-				grid-area: rue;
-			}
-			.codePostal {
-				grid-area: codePostal;
-			}
-			.ville {
-				grid-area: ville;
-			}
-
-			#group-grid-personnel {
-				display: grid;
-				grid-gap: 10px;
-				grid-template-columns: repeat(6, 1fr);
-				grid-auto-rows: minmax(50px, auto);
-				grid-template-areas:
-					"genre genre hd hd hd hd"
-					"prenom prenom prenom nom nom nom";
-			}
-
-			#group-grid-localisation {
-				display: grid;
-				grid-gap: 10px;
-				grid-template-columns: repeat(6, 1fr);
-				grid-auto-rows: minmax(50px, auto);
-				grid-template-areas:
-					"rue rue rue rue rue rue"
-					"codePostal codePostal ville ville ville ville";
-			}
-
-			form button {
-				margin-top: 100px;
-			}
-
-			form > div {
-				display: none;
-			}
-
-			form > #form1 {
-				display: block;
-			}
-
-			.numeroOpportunite {
-				grid-area: numeroOpportunite;
-			}
-			.referenceDossier {
-				grid-area: referenceDossier;
-			}
-			.numeroSIRET {
-				grid-area: numeroSIRET;
-			}
-			.numeroSIREN {
-				grid-area: numeroSIREN;
-			}
-			.intermediaire {
-				grid-area: intermediaire;
-			}
-			.descriptionSuccincte {
-				grid-area: descriptionSuccincte;
-			}
-			.imageLien {
-				grid-area: imageLien;
-			}
-			.presenceCoassurance {
-				grid-area: presenceCoassurance;
-			}
-
-			#group-grid-carac-general {
-				display: grid;
-				grid-gap: 10px;
-				grid-template-columns: repeat(6, 1fr);
-				grid-auto-rows: minmax(100px, auto);
-				grid-template-areas:
-					"numeroOpportunite numeroOpportunite numeroOpportunite referenceDossier referenceDossier referenceDossier"
-					"numeroSIRET numeroSIRET numeroSIRET numeroSIREN numeroSIREN numeroSIREN"
-					"intermediaire intermediaire intermediaire . . ."
-					"descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte"
-					"imageLien imageLien . . . ."
-					"presenceCoassurance presenceCoassurance . . . .";
-			}
-
-			.adresseOperation {
-				grid-area: adresseOperation;
-			}
-			.planAdresseOperation {
-				grid-area: planAdresseOperation;
-			}
-			.descriptifOperation {
-				grid-area: descriptifOperation;
-			}
-
-			#group-grid-carac-technique {
-				display: grid;
-				grid-gap: 10px;
-				grid-template-columns: repeat(6, 1fr);
-				grid-auto-rows: minmax(50px, auto);
-				grid-template-areas:
-					"adresseOperation adresseOperation adresseOperation . . ."
-					"planAdresseOperation planAdresseOperation . . . ."
-					"descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation";
-			}
-
-			.ql-container {
-				height: unset;
-			}
 		</style>
 	</head>
 	<body>
@@ -372,57 +208,16 @@
 				>
 					<!-- LOGO -->
 					<a class="navbar-brand" href="#"></a>
-					<!-- OPEN DROPDOWN -->
-					<div id="currentnav" class="collapse d-flex show">
-						<!-- Open -->
-						<button
-							id="nav-burger"
-							class="nav-menu-responsif navbar-toggler collapse show position-absolute end-0"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target=".nav-menu-responsif, #navbarDropdown"
-							aria-controls="navbarDropdown navbar4_searchForm navbar4_buttonsForm"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-							style="top: 22px"
-						>
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<!-- Close -->
-						<button
-							id="nav-close"
-							class="nav-menu-responsif navbar-toggler collapse collapsed position-absolute end-0"
-							type="button"
-							data-bs-toggle="collapse-all"
-							data-bs-target=".nav-menu-responsif, #navbarDropdown, #inputSearch"
-							aria-controls="navbarDropdown"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-							style="top: 19px"
-						>
-							<i class="icon-close fs-xl"></i>
-						</button>
-					</div>
-					<div
-						class="collapse navbar-collapse header-collapse toggle-close"
-						id="navbarDropdown"
-					>
-						<div
-							class="tab-content navbar-header-dropdown"
-							id="nav-tabContent"
-						>
-							<div
-								class="tab-content"
-								id="myTabContent"
-								data-bs-toggle="tab-drop"
-							>
+					<div class="" id="navbarDropdown">
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-content" id="myTabContent">
 								<!-- navbar DESKTOP mode individuals -->
 								<div
 									class="tab-pane show active nav-individuals-2"
 									id="nav-individuals-2"
 								>
 									<ul
-										class="nav navbar4-multiCollapse show nav-tabs navbar-nav search-collapse text-uppercase me-0 m-auto flex-nowrap"
+										class="nav text-uppercase me-0 m-auto flex-nowrap"
 										id="TabIndividuals"
 									>
 										<li role="presentation">
@@ -436,18 +231,8 @@
 											<a
 												class="nav-link reverse-tab d-flex justify-content-between w-100 text-nowrap permanent-active"
 												href="formulaire.html"
-												>FORMUAIRE CONTRAT
+												>NOUVEAU CONTRAT
 											</a>
-										</li>
-										<li
-											class="m-auto py-4 py-xxxl-0 px-2 border-xxl-none"
-										>
-											<button
-												type="button"
-												class="btn btn-outline-primary w-100"
-											>
-												LOGIN
-											</button>
 										</li>
 									</ul>
 								</div>
@@ -457,7 +242,10 @@
 				</nav>
 			</div>
 		</header>
-		<main class="main-container container--center container--mw-lg">
+		<main
+			id="main"
+			class="main-container container--center container--mw-lg"
+		>
 			<aside class="header-block d-none d-md-flex">
 				<div class="navigation-slider">
 					<nav class="header-block-steps">
@@ -581,7 +369,7 @@
 										class="form-control"
 										aria-label="Sizing"
 										example
-										input”
+										input
 										aria-describedby="inputGroup-sizing-lg"
 									/>
 								</div>
@@ -595,7 +383,7 @@
 										</label>
 										<div class="form-check">
 											<input
-												class="form-check-input"
+												class="form-check-input formValue"
 												type="radio"
 												name="genre"
 												id="homme"
@@ -611,7 +399,7 @@
 										</div>
 										<div class="form-check">
 											<input
-												class="form-check-input"
+												class="form-check-input formValue"
 												type="radio"
 												name="genre"
 												id="femme"
@@ -632,11 +420,16 @@
 										<input
 											id="prenom"
 											name="prenom"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="prenom"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Prénom requis.
+										</div>
 									</div>
 
 									<div class="nom">
@@ -646,11 +439,16 @@
 										<input
 											id="nom"
 											name="nom"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="nom"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Nom requis.
+										</div>
 									</div>
 								</div>
 
@@ -663,11 +461,16 @@
 										<input
 											id="rue"
 											name="rue"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="rue"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Rue requise.
+										</div>
 									</div>
 									<div class="codePostal">
 										<label
@@ -679,11 +482,17 @@
 										<input
 											id="codePostal"
 											name="codePostal"
-											class="form-control form-control-l"
+											class="form-control form-control-lg formValue"
 											type="text"
+											pattern="[0-9]{5}"
 											placeholder="code postal"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Format 00000 requis ou invalide.
+										</div>
 									</div>
 
 									<div class="ville">
@@ -693,25 +502,23 @@
 										<input
 											id="ville"
 											name="ville"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="ville"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Ville requise.
+										</div>
 									</div>
 								</div>
 
 								<button
 									type="button"
-									class="btn btn-primary"
-									onclick="
-										document.getElementById('status1').classList.remove('current')
-										document.getElementById('status1').classList.add('completed')
-										document.getElementById('status-bar1').style.height = '100%'
-										document.getElementById('status2').classList.add('current')
-										document.getElementById('form1').style.display = 'none'
-										document.getElementById('form2').style.display = 'block'
-									"
+									class="btn btn-primary changeForm"
+									currentPage="1"
 								>
 									Suivant
 								</button>
@@ -731,11 +538,16 @@
 										<input
 											id="numeroOpportunite"
 											name="numeroOpportunite"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="Numéro d'opportunité"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Numéro d'opportunité requis.
+										</div>
 									</div>
 									<div class="referenceDossier">
 										<label
@@ -749,11 +561,16 @@
 										<input
 											id="referenceDossier"
 											name="referenceDossier"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="Référence du dossier"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Référence du dossier requis.
+										</div>
 									</div>
 									<div class="numeroSIRET">
 										<label
@@ -765,11 +582,17 @@
 										<input
 											id="numeroSIRET"
 											name="numeroSIRET"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
+											pattern="[0-9]{14}"
 											placeholder="Numéro de SIRET"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Numéro de SIRET requis ou invalide.
+										</div>
 									</div>
 									<div class="numeroSIREN">
 										<label
@@ -781,11 +604,17 @@
 										<input
 											id="numeroSIREN"
 											name="numeroSIREN"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
+											pattern="[0-9]{9}"
 											placeholder="Numéro de SIREN"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Numéro de SIREN requis ou invalide.
+										</div>
 									</div>
 									<div class="intermediaire">
 										<label
@@ -797,11 +626,34 @@
 										<input
 											id="intermediaire"
 											name="intermediaire"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="Intermédiaire"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Intermédiaire requis.
+										</div>
+									</div>
+									<div class="affaire">
+										<label for="affaire" class="form-label">
+											<strong>Affaire</strong>
+										</label>
+										<input
+											id="affaire"
+											name="affaire"
+											class="form-control form-control-lg formValue"
+											type="text"
+											placeholder="Affaire"
+											aria-label=".form-control-lg example"
+											required
+										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Affaire requise.
+										</div>
 									</div>
 									<div class="descriptionSuccincte">
 										<label
@@ -815,11 +667,16 @@
 										<textarea
 											id="descriptionSuccincte"
 											name="descriptionSuccincte"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="Description succincte"
 											aria-label=".form-control-lg example"
+											required
 										></textarea>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Description requise.
+										</div>
 									</div>
 									<div class="imageLien">
 										<label
@@ -831,12 +688,18 @@
 										<input
 											type="file"
 											accept=".jpg, .jpeg, .png"
-											class="custom-file-input"
+											class="custom-file-input formValueImage"
 											id="imageLien"
 											name="imageLien"
 											type="text"
 											placeholder="Description succincte"
+											required
 										/>
+										<div id="imagesImageLien"></div>
+										<div class="valid-feedback">test</div>
+										<div class="invalid-feedback">
+											Image requise.
+										</div>
 									</div>
 									<div class="presenceCoassurance">
 										<label
@@ -847,7 +710,7 @@
 										</label>
 										<div class="form-check">
 											<input
-												class="form-check-input"
+												class="form-check-input formValue"
 												type="radio"
 												name="presenceCoassurance"
 												id="oui"
@@ -863,7 +726,7 @@
 										</div>
 										<div class="form-check">
 											<input
-												class="form-check-input"
+												class="form-check-input formValue"
 												type="radio"
 												name="presenceCoassurance"
 												id="non"
@@ -881,28 +744,15 @@
 
 								<button
 									type="button"
-									class="btn btn-primary"
-									onclick="
-									document.getElementById('status2').classList.remove('current')
-									document.getElementById('status-bar1').style.height = '100%'
-									document.getElementById('status1').classList.add('current')
-									document.getElementById('form2').style.display = 'none'
-									document.getElementById('form1').style.display = 'block'
-								"
+									class="btn btn-primary changeFormPrevious"
+									currentPage="2"
 								>
 									Précédent
 								</button>
 								<button
 									type="button"
-									class="btn btn-primary"
-									onclick="
-									document.getElementById('status2').classList.remove('current')
-									document.getElementById('status2').classList.add('completed')
-									document.getElementById('status-bar2').style.height = '100%'
-									document.getElementById('status3').classList.add('current')
-									document.getElementById('form2').style.display = 'none'
-									document.getElementById('form3').style.display = 'block'
-								"
+									class="btn btn-primary changeForm"
+									currentPage="2"
 								>
 									Suivant
 								</button>
@@ -922,11 +772,16 @@
 										<input
 											id="adresseOperation"
 											name="adresseOperation"
-											class="form-control form-control-lg"
+											class="form-control form-control-lg formValue"
 											type="text"
 											placeholder="Adresse de l'opération"
 											aria-label=".form-control-lg example"
+											required
 										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Adresse de l'opération requis.
+										</div>
 									</div>
 									<div class="planAdresseOperation">
 										<label
@@ -939,12 +794,76 @@
 											multiple
 											type="file"
 											accept=".jpg, .jpeg, .png"
-											class="custom-file-input"
+											class="custom-file-input formValueImage"
 											id="planAdresseOperation"
-											name="planAdresseOperation"
-											type="text"
-											placeholder="Description succincte"
+											name="planAdresseOperation[]"
+											required
 										/>
+										<div
+											id="imagesPlanAdresseOperation"
+										></div>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Image(s) requise.
+										</div>
+									</div>
+									<div class="cout1">
+										<label for="cout1" class="form-label">
+											<strong>Cout 1</strong>
+										</label>
+										<input
+											id="cout1"
+											name="cout1"
+											class="form-control form-control-lg formValue"
+											type="text"
+											placeholder="Cout 1"
+											aria-label=".form-control-lg example"
+											required
+										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Cout 1 requis.
+										</div>
+									</div>
+									<div class="cout2">
+										<label for="cout2" class="form-label">
+											<strong>Cout 2</strong>
+										</label>
+										<input
+											id="cout2"
+											name="cout2"
+											class="form-control form-control-lg formValue"
+											type="text"
+											placeholder="Cout 2"
+											aria-label=".form-control-lg example"
+											required
+										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Cout 2 requis.
+										</div>
+									</div>
+									<div class="coutOperation">
+										<label
+											for="coutOperation"
+											class="form-label"
+										>
+											<strong>Cout Total</strong>
+										</label>
+										<input
+											id="coutOperation"
+											name="coutOperation"
+											class="form-control form-control-lg formValue"
+											type="text"
+											placeholder="Cout total"
+											aria-label=".form-control-lg example"
+											required
+											disabled
+										/>
+										<div class="valid-feedback"></div>
+										<div class="invalid-feedback">
+											Cout Total requis.
+										</div>
 									</div>
 									<div class="descriptifOperation">
 										<label
@@ -953,33 +872,46 @@
 										>
 											<strong>Descriptif détaillé</strong>
 										</label>
-										<div id="editor">
-											<p>Hello World!</p>
-											<p>
-												Some initial
-												<strong>bold</strong> text
-											</p>
-											<p><br /></p>
-										</div>
+										<div
+											id="editor"
+											class="formValue"
+										></div>
 									</div>
 								</div>
 
 								<button
 									type="button"
-									class="btn btn-primary"
-									onclick="
-									document.getElementById('status3').classList.remove('current')
-									document.getElementById('status-bar2').style.height = '100%'
-									document.getElementById('status2').classList.add('current')
-									document.getElementById('form3').style.display = 'none'
-									document.getElementById('form2').style.display = 'block'
-								"
+									class="btn btn-primary changeFormPrevious"
+									currentPage="3"
 								>
 									Précédent
 								</button>
-								<button type="submit" class="btn btn-primary">
+								<button
+									type="submit"
+									currentPage="3"
+									class="btn btn-primary changeForm"
+								>
 									Valider
 								</button>
+							</div>
+							<div id="form4">
+								<div id="message_error"></div>
+								<button
+									type="button"
+									class="btn btn-primary changeFormPrevious"
+									currentPage="3"
+								>
+									Précédent
+								</button>
+								<a href="index.html">
+									<button
+										type="button"
+										currentPage="3"
+										class="btn btn-primary changeForm"
+									>
+										TERMINER
+									</button>
+								</a>
 							</div>
 						</form>
 					</div>
@@ -998,8 +930,21 @@
 			const quill = new Quill("#editor", {
 				theme: "snow",
 			});
+			let currentPageForm = 1;
+
+			const debounce = (fn, delay = 1000) => {
+				let timerId = null;
+				return (...args) => {
+					clearTimeout(timerId);
+					timerId = setTimeout(() => fn(...args), delay);
+				};
+			};
 		</script>
+		<script type="text/javascript" src="./js/modal.js"></script>
+		<script type="text/javascript" src="./js/rowItemTable.js"></script>
 		<script type="text/javascript" src="./js/searchClient.js"></script>
 		<script type="text/javascript" src="./js/contratFormulaire.js"></script>
+		<script type="text/javascript" src="./js/switchForm.js"></script>
+		<script type="text/javascript" src="./js/addiitonCout.js"></script>
 	</body>
 </html>

@@ -1,0 +1,45 @@
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	font-family: SourceSansPro-regular, Arial, Helvetica, Sans-Serif;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.permanent-active {
+	border-color: var(--bs-axa-blue) !important;
+}
+.axa-header {
+	border-bottom: 1px solid #ccc;
+	/* display: flex; */
+	justify-content: space-between;
+	margin: 0 auto;
+	/* max-width: 80rem; */
+	min-height: 5.7rem;
+	padding: 0.8rem 1.6rem;
+	width: 100%;
+	overflow-x: auto;
+}
+
+@media only screen and (min-width: 1025px),
+	only screen and (min-width: 668px) and (max-width: 1024px) {
+	.axa-header {
+		/* max-width: 136.6rem; */
+		min-height: 7.5rem;
+		padding: 0.8rem 5.3rem;
+	}
+}
+
+.component-loader,
+.page-loader {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	/* font-size: 1.4rem; */
+}

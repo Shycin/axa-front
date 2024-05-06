@@ -1,0 +1,134 @@
+form h2 {
+	margin-top: 100px;
+}
+
+form .btn {
+	margin-top: 100px;
+}
+
+.genre {
+	grid-area: genre;
+}
+.prenom {
+	grid-area: prenom;
+}
+.nom {
+	grid-area: nom;
+}
+.rue {
+	grid-area: rue;
+}
+.codePostal {
+	grid-area: codePostal;
+}
+.ville {
+	grid-area: ville;
+}
+
+#group-grid-personnel {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: minmax(50px, auto);
+	grid-template-areas:
+		"genre genre hd hd hd hd"
+		"prenom prenom prenom nom nom nom";
+}
+
+#group-grid-localisation {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas:
+		"rue rue rue rue rue rue"
+		"codePostal codePostal ville ville ville ville";
+}
+
+form > div {
+	display: none;
+}
+
+form > #form1 {
+	display: block;
+}
+
+.numeroOpportunite {
+	grid-area: numeroOpportunite;
+}
+.referenceDossier {
+	grid-area: referenceDossier;
+}
+.numeroSIRET {
+	grid-area: numeroSIRET;
+}
+.numeroSIREN {
+	grid-area: numeroSIREN;
+}
+.intermediaire {
+	grid-area: intermediaire;
+}
+.affaire {
+	grid-area: affaire;
+}
+.descriptionSuccincte {
+	grid-area: descriptionSuccincte;
+}
+.imageLien {
+	grid-area: imageLien;
+}
+.presenceCoassurance {
+	grid-area: presenceCoassurance;
+}
+
+#group-grid-carac-general {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas:
+		"numeroOpportunite numeroOpportunite numeroOpportunite referenceDossier referenceDossier referenceDossier"
+		"numeroSIRET numeroSIRET numeroSIRET numeroSIREN numeroSIREN numeroSIREN"
+		"intermediaire intermediaire intermediaire affaire affaire affaire"
+		"descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte descriptionSuccincte"
+		"imageLien imageLien . . . ."
+		"presenceCoassurance presenceCoassurance . . . .";
+}
+
+.adresseOperation {
+	grid-area: adresseOperation;
+}
+.planAdresseOperation {
+	grid-area: planAdresseOperation;
+}
+.descriptifOperation {
+	grid-area: descriptifOperation;
+}
+
+.cout1 {
+	grid-area: cout1;
+}
+
+.cout2 {
+	grid-area: cout2;
+}
+
+.coutOperation {
+	grid-area: coutOperation;
+}
+
+#group-grid-carac-technique {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas:
+		"adresseOperation adresseOperation adresseOperation . . ."
+		"planAdresseOperation planAdresseOperation . . . ."
+		"descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation descriptifOperation"
+		"cout1 cout1 cout2 cout2 coutOperation coutOperation";
+}
+
+.ql-container {
+	height: unset;
+}

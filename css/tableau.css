@@ -1,0 +1,19 @@
+tr {
+	height: 50px;
+}
+
+.table-row td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text-overflow-clip {
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: clip;
+}
+
+.sort-icon {
+	top: unset;
+}
